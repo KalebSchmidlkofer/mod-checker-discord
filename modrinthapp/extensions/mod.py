@@ -30,11 +30,12 @@ async def modsuggest(
   channel = int(os.environ['CHANNEL'])
   
   if mc_version in game_version and mc_loader in loaders:
-    await ctx.respond('valid Mod!', flags=hikari.MessageFlag.EPHEMERAL)
+    await ctx.respond(f'valid Mod!', flags=hikari.MessageFlag.EPHEMERAL)
     modDataEmbed=hikari.Embed(title=await project.get_slug(), url=modid, color=0x1eb37c)
     modDataEmbed.set_image(icon)
     modDataEmbed.add_field('Client Side', value=client, inline=True)
     modDataEmbed.add_field('Server Side', value=server, inline=True)
+    modDataEmbed.set_footer(f'Requested by, {ctx.user.global_name}', icon=ctx.user.avatar_url)
     await gateway.rest.create_message(channel, modDataEmbed)
   else:
     if not mc_version in game_version:
