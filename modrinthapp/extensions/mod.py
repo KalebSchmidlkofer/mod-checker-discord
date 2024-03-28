@@ -1,4 +1,4 @@
-from modrinth.py import modrinthProjects
+from modrinth import modrinthProjects
 import asyncio
 import hikari
 import miru
@@ -10,6 +10,8 @@ plugin = arc.GatewayPlugin('mod', default_permissions=hikari.Permissions.ADMINIS
 
 project=modrinthProjects.Data()
 
+mc_version='1.20.1'
+mc_loader='forge'
 
 @plugin.include
 @arc.slash_command('modsuggest', 'Suggest a mod')
@@ -24,16 +26,20 @@ async def modsuggest(
   server = await project.get_server_side()  
   icon=await project.get_icon_url()
   
-  if '1.20.1' in game_version and 'forge' in loaders:
+  if mc_version in game_version and mc_loader in loaders:
     await ctx.respond('valid Mod!', flags=hikari.MessageFlag.EPHEMERAL)
     modDataEmbed=hikari.Embed(title=await project.get_slug(), url=modid, color=0x1eb37c)
     modDataEmbed.set_image(icon)
     modDataEmbed.add_field('Client Side', value=client, inline=True)
     modDataEmbed.add_field('Server Side', value=server, inline=True)
-    await gateway.rest.create_message(1221744548213030922, modDataEmbed)
+    await gateway.rest.create_message(1201451430435889234, modDataEmbed)
   else:
-    await ctx.respond('Invalid Mod! if you think this is wrong, ping naterfute', flags=hikari.MessageFlag.EPHEMERAL)
-     
+    if not mc_version in game_version:
+      await ctx.respond(f"Doesn't have a {mc_version} version!", flags=hikari.MessageFlag.EPHEMERAL)
+    if not mc_loader in loaders:
+      await ctx.respond(f'Not built for {mc_loader}', flags=hikari.MessageFlag.EPHEMERAL)
+      
+      
 
 
 @arc.loader
