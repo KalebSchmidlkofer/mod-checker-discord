@@ -29,7 +29,7 @@ miru.Client(gateway)
 async def set_presence(event: arc.StartedEvent):
   await gateway.update_presence(
     status=hikari.Status.ONLINE,
-    activity=hikari.Activity(name=f'Mee6 Screw Up', type=hikari.ActivityType.WATCHING)
+    activity=hikari.Activity(name=f'Modrinth mod requests', type=hikari.ActivityType.WATCHING)
     )
   
 @client.include
