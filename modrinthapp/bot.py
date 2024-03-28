@@ -19,20 +19,20 @@ StatusTypes = {
 }
 
 gateway = hikari.GatewayBot(environ['BOT_TOKEN'], intents=hikari.Intents.ALL, banner=None)
-client = arc.GatewayClient(gateway)
+arc_client = arc.GatewayClient(gateway)
 
 PluginPath=path.join('modrinthapp', 'extensions')
-client.load_extensions_from(PluginPath)
+arc_client.load_extensions_from(PluginPath)
 miru.Client(gateway)
 
-@client.listen()
+@arc_client.listen()
 async def set_presence(event: arc.StartedEvent):
   await gateway.update_presence(
     status=hikari.Status.ONLINE,
     activity=hikari.Activity(name=f'Modrinth mod requests', type=hikari.ActivityType.WATCHING)
     )
   
-@client.include
+@arc_client.include
 @arc.with_hook(arc.owner_only)
 @arc.slash_command('presence', 'Changes Discord bots presence')
 async def change_presence(
