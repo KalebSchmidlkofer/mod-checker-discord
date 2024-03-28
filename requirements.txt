@@ -11,7 +11,7 @@ hikari-arc==1.2.1
 hikari-miru==4.1.1
 idna==3.6
 loguru==0.7.2
-modrinth-py @ https://github.com/KalebSchmidlkofer/modrinth.py/releases/download/1.0.0/modrinth_py-1.0.0-py3-none-any.whl#sha256=8b055d1f9bc9ea9f1a152f876af4d104f6d3feb6b090587774da5eb94b921539
+modrinth-py @ https://github.com/KalebSchmidlkofer/modrinth.py/releases/download/1.0.1/modrinth_py-1.0.1-py3-none-any.whl#sha256=753971695cb45bed36090fa5e4b29f3374e38560c02e6158d98628373d5b4ac6
 multidict==6.0.5
 python-dotenv==1.0.1
 requests==2.31.0
