@@ -1,0 +1,5 @@
+.env
+.venv
+modrinthapp/__pycache__
+*/__pycache__/*
+modrinthapp/extensions/__pycache__
