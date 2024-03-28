@@ -30,7 +30,7 @@ async def modsuggest(
     modDataEmbed.set_image(icon)
     modDataEmbed.add_field('Client Side', value=client, inline=True)
     modDataEmbed.add_field('Server Side', value=server, inline=True)
-    await gateway.rest.create_message(1201451430435889234, modDataEmbed)
+    await gateway.rest.create_message(1221744548213030922, modDataEmbed)
   else:
     await ctx.respond('Invalid Mod! if you think this is wrong, ping naterfute', flags=hikari.MessageFlag.EPHEMERAL)
      
