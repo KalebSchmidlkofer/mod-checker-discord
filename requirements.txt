@@ -6,7 +6,7 @@ certifi==2024.2.2
 charset-normalizer==3.3.2
 colorlog==6.8.2
 frozenlist==1.4.1
-hikari==2.0.0.dev122
+hikari==2.0.0.dev126
 hikari-arc==1.2.1
 hikari-miru==4.1.1
 idna==3.6
